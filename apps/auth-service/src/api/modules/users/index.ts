@@ -1,4 +1,4 @@
-import BaseRouter from '../../../commons/router/base.router'
+import BaseRouter from '@app/common/router/base.router'
 import UserController from './user.controller'
 
 class UserRouter extends BaseRouter {

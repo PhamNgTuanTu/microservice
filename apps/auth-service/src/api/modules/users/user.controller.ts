@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { Document } from "mongoose";
-import HttpController from "../../../commons/controllers/http.controller";
 import { User } from "./user.model";
+import HttpController from "@app/common/controllers/http.controller";
 
 class UserController extends HttpController {
   private user = User;
