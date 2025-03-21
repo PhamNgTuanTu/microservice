@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const VERSION = process.env.VERSION || "";
 /**
  * Initializes the router by adding routes to the provided Express application.
  *
@@ -13,14 +12,18 @@ const VERSION = process.env.VERSION || "";
  * @returns void
  */
 export default class Router {
+  constructor(private modulePath: string) {}
+
   initialize(app: Application): void {
     const isDirectory = (source: string) => fs.lstatSync(source).isDirectory();
-
     const getDirectories = (source: string) =>
       fs.readdirSync(source).filter((name: string) => isDirectory(path.join(source, name)));
 
-    getDirectories(path.join(__dirname, 'modules')).forEach((route) =>
-      app.use(`/api/${VERSION}/${route.replace(/-/g, '')}`, require(`./modules/${route}`).default),
-    );
+    getDirectories(this.modulePath).forEach((route) => {
+      app.use(
+        `/api/${process.env.VERSION || ''}/${route.replace(/-/g, '')}`,
+        require(path.join(this.modulePath, route)).default,
+      );
+    });
   }
 }

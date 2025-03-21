@@ -1,3 +1,4 @@
+import Router from "@app/common/router/map.router";
 import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
@@ -5,12 +6,12 @@ import cors from "cors";
 import express, { Application } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import Router from "../api";
+import path from "path";
 // import { Database } from "../databases";
 
 class App {
   express: Application;
-  private router = new Router();
+  private router = new Router(path.join(__dirname, "../api/modules"));
   // private database = new Database()
 
   constructor() {
