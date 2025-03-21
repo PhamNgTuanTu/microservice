@@ -6,14 +6,7 @@
   "scripts": {
     "start": "ts-node --transpile-only --ignore-watch node_modules src/main.ts",
     "dev": "nodemon --exec ts-node src/main.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sequelize": "sequelize-cli",
-    "migration:generate": "sequelize-cli migration:generate --name",
-    "db:migrate": "sequelize-cli db:migrate",
-    "db:seed:all": "sequelize-cli db:seed:all",
-    "db:migrate:undo": "sequelize-cli db:migrate:undo",
-    "db:migrate:undo:all": "sequelize-cli db:migrate:undo:all",
-    "db:seed:undo:all": "sequelize-cli db:seed:undo:all"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
